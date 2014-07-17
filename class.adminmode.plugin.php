@@ -16,7 +16,7 @@
 $PluginInfo['AdminMode'] = array(
 	'Name' => 'Admin Mode',
 	'Description' => 'Puts the site into administrator mode. Any user without the `Garden.Settings.Manage` permission will be unable to use the site.',
-	'Version' => '1.0',
+	'Version' => '1.0.1',
 	'RequiredApplications' => array('Vanilla' => '2.0.18.11'),
 	'RequiredTheme' => FALSE,
 	'RequiredPlugins' => FALSE,
@@ -38,7 +38,7 @@ class AdminMode extends Gdn_Plugin {
   public function Gdn_Dispatcher_BeforeBlockDetect_Handler($Sender) {
     $BlockExceptions =& $Sender->EventArguments['BlockExceptions'];
     unset($BlockExceptions['/^entry(\/.*)?$/']);
-    $BlockExceptions['/^entry\/signin$/'] = 0;
+    $BlockExceptions['/^entry\/signin$/'] = Gdn_Dispatcher::BLOCK_NEVER;
   }
   
   /**
