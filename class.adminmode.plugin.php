@@ -17,7 +17,7 @@ $PluginInfo['AdminMode'] = array(
   'Name' => 'Admin Mode',
   'Description' => 'Puts the site into administrator mode. Any user without the `Garden.Settings.Manage` permission will be unable to use the site.',
   'Version' => '1.1.0',
-  'RequiredApplications' => array('Vanilla' => '2.0.18.11'),
+  'RequiredApplications' => array('Vanilla' => '2.3.1'),
   'RequiredTheme' => FALSE,
   'RequiredPlugins' => FALSE,
   'MobileFriendly' => TRUE,
