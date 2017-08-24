@@ -14,23 +14,23 @@
 *	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 $PluginInfo['AdminMode'] = array(
-	'Name' => 'Admin Mode',
-	'Description' => 'Puts the site into administrator mode. Any user without the `Garden.Settings.Manage` permission will be unable to use the site.',
-	'Version' => '1.0.1',
-	'RequiredApplications' => array('Vanilla' => '2.0.18.11'),
-	'RequiredTheme' => FALSE,
-	'RequiredPlugins' => FALSE,
-	'MobileFriendly' => TRUE,
-	'HasLocale' => TRUE,
-	'RegisterPermissions' => FALSE,
+  'Name' => 'Admin Mode',
+  'Description' => 'Puts the site into administrator mode. Any user without the `Garden.Settings.Manage` permission will be unable to use the site.',
+  'Version' => '1.1.0',
+  'RequiredApplications' => array('Vanilla' => '2.0.18.11'),
+  'RequiredTheme' => FALSE,
+  'RequiredPlugins' => FALSE,
+  'MobileFriendly' => TRUE,
+  'HasLocale' => TRUE,
+  'RegisterPermissions' => FALSE,
   'Author' => 'Zachary Doll',
-	'AuthorEmail' => 'hgtonight@daklutz.com',
-	'AuthorUrl' => 'http://www.daklutz.com',
-	'License' => 'GPLv3'
+  'AuthorEmail' => 'hgtonight@daklutz.com',
+  'AuthorUrl' => 'http://www.daklutz.com',
+  'License' => 'GPLv3'
 );
 
 class AdminMode extends Gdn_Plugin {
-  
+
   /**
    * Never block the entry/signin page when in admin mode
    * @param type $Sender
@@ -40,7 +40,7 @@ class AdminMode extends Gdn_Plugin {
     unset($BlockExceptions['/^entry(\/.*)?$/']);
     $BlockExceptions['/^entry\/signin$/'] = Gdn_Dispatcher::BLOCK_NEVER;
   }
-  
+
   /**
    * Show an inform message with an appropriate quick link.
    * @param Gdn_Controller $Sender
@@ -54,14 +54,14 @@ class AdminMode extends Gdn_Plugin {
       $Sender->InformMessage(Anchor(T('Plugins.AdminMode.EntryLink'), 'entry/signin', 'Popup'), 'HasSprite');
     }
   }
-  
+
   /**
    * Save the update config item when the plugin is enabled
    */
   public function Setup() {
     SaveToConfig('Garden.UpdateMode', TRUE);
   }
-  
+
   /**
    * Remove the update config item when the plugin is disabled
    */
